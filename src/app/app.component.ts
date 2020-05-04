@@ -15,11 +15,13 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
   ) {
+    console.log('AppComponent constructor');
     this.initializeApp();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
+      console.log('platform ready');
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

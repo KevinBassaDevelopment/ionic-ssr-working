@@ -13,7 +13,9 @@ export class HomePage implements OnInit {
   constructor(
     private postsService: PostsService,
     private navCtrl: NavController
-  ) {}
+  ) {
+    console.log('HomePage constructor');
+  }
 
   ngOnInit() {
     this.posts = this.postsService.getAllPosts();
