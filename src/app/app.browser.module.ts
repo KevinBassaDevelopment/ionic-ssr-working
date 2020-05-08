@@ -21,7 +21,7 @@ export function appInitializerFactory() {
 @NgModule({
   entryComponents: [],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({ appId: 'app' }),
     AppModule
   ],
   providers: [

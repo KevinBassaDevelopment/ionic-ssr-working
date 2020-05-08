@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { PostsService } from './posts.service';
 import { NavController } from '@ionic/angular';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +10,18 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
+  public isBrowser = false;
+
   posts: any;
   constructor(
     private postsService: PostsService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    @Inject(PLATFORM_ID) private platformId: any
   ) {
     console.log('HomePage constructor');
+    if (isPlatformBrowser(this.platformId)) {
+      this.isBrowser = true;
+    }
   }
 
   ngOnInit() {
@@ -22,6 +29,6 @@ export class HomePage implements OnInit {
   }
   public onBtnClicked() {
     // this.router.navigate(['page1']);
-     this.navCtrl.navigateRoot(['/page1']);
-   }
+    this.navCtrl.navigateRoot(['/page1']);
+  }
 }

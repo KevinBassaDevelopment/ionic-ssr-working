@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { HomePage } from './home/home.page';
 
 const routes: Routes = [
   {
@@ -7,11 +8,15 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
+    path: 'withoutlazyloading',
+    component: HomePage
+  },
+  {
     path: 'page1',
     loadChildren: () => import('./page1/page1.module').then(m => m.Page1Module)
   },
-   // Fallback when no prior route is matched
-   {
+  // Fallback when no prior route is matched
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full'

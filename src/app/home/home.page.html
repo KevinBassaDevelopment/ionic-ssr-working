@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      This is my blog
+    <ion-title class="title">
+      This is my blog <span *ngIf="this.isBrowser" class="isbrowser"> [Is Browser]</span><span *ngIf="!this.isBrowser" class="isbrowser"> [Is Server]</span>
     </ion-title>
   </ion-toolbar>
 </ion-header>
